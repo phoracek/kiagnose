@@ -15,12 +15,7 @@ stable APIs. The goal is not to provide a feature rich tool.
 ## User requirements
 
 1. Kiagnose is delivered through OLM and installed by the cluster administrator.
-2. Checkups need to run with the same or lesser rights as the user which
-   triggered them.
-   * i.e. users must not be able to use a checkup to gain elevated privileges
-     they would not be able to get through the [known privilege
-     escallation](https://kubernetes.io/docs/reference/access-authn-authz/authorization/#privilege-escalation-via-pod-creation)
-     otherwise.
+2. Privileges of a checkup must be bound to a service account.
 3. As a project owner I would like to automate running several checkups.
    Therefore I need a clear API to pass parameters to a checkup and collect its
    output.
