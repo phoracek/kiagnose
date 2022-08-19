@@ -14,12 +14,17 @@ stable APIs. The goal is not to provide a feature rich tool.
 
 ## User requirements
 
-1. Kiagnose is delivered through OLM and installed by the cluster administrator.
-2. Privileges of a checkup must be bound to a service account.
-3. As a project owner I would like to automate running several checkups.
+1. Nothing but `kubectl` should be required on the client-side to interact with
+   checkups.
+2. Kiagnose must not create a service account or bind any roles. It must rely on
+   existing Kubernetes autorization mechanisms, and on present RBAC
+   configuration.
+3. Checkup must be initiated in the namespace it was requested from.
+4. Kiagnose is delivered through OLM and installed by the cluster administrator.
+5. As a project owner I would like to automate running several checkups.
    Therefore I need a clear API to pass parameters to a checkup and collect its
    output.
-4. As a Vendor I would like to have a clear API that my checkup must adhere to,
+6. As a Vendor I would like to have a clear API that my checkup must adhere to,
    so it is easy to integrate to the framework.
 
 ## Out of v1 scope
