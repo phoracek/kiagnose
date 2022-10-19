@@ -26,7 +26,8 @@ stable APIs. The goal is not to provide a feature rich tool.
    cluster-admin (with the exception described in the requirement 4).
 6. As a project owner I would like to automate running several checkups.
    Therefore I need a clear API to pass parameters to a checkup and collect its
-   output.
+   output. Note: To operate over heterogenous set of checkups and expose them as
+   a single resource, they need to share the same API group and kind.
 7. As a Vendor I would like to have a clear API that my checkup must adhere to,
    so it is easy to integrate to the framework.
 
