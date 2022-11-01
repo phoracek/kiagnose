@@ -8,9 +8,9 @@ stable APIs. The goal is not to provide a feature rich tool.
 
 ## Personas
 
-1. cluster-admin installing Kiagnose
+1. Cluster admin
 2. Vendor writting a checkup
-3. Cluster user running one or more checkups
+3. Project admin running one or more checkups
 
 ## User requirements
 
@@ -20,15 +20,13 @@ stable APIs. The goal is not to provide a feature rich tool.
    existing Kubernetes autorization mechanisms, and on present RBAC
    configuration.
 3. Checkup must be initiated in the namespace it was requested from.
-4. If there is a need for a long-running controller, it is delivered through OLM
-   and can be installed by the cluster administrator.
-5. A project-admin can run a checkup without any prior work done by
-   cluster-admin (with the exception described in the requirement 4).
-6. As a project owner I would like to automate running several checkups.
+4. A project-admin can run a checkup without any prior work done by
+   cluster-admin.
+5. As a project owner I would like to automate running several checkups.
    Therefore I need a clear API to pass parameters to a checkup and collect its
    output. Note: To operate over heterogenous set of checkups and expose them as
    a single resource, they need to share the same API group and kind.
-7. As a Vendor I would like to have a clear API that my checkup must adhere to,
+6. As a Vendor I would like to have a clear API that my checkup must adhere to,
    so it is easy to integrate to the framework.
 
 ## Out of v1 scope
@@ -41,8 +39,12 @@ stable APIs. The goal is not to provide a feature rich tool.
 ## Project-admin user stories
 
  * As a cluster admin,
-   I don't want to be bothered by developers wanting to run a test of their application.
- * As a developer (project admin),
+   I don't want to be bothered by project admins wanting to run a test of their
+   application, that could be executed with their current privileges.
+ * As a cluster admin,
+   I'm only willing to deal with native Kubernetes resources,
+   I don't want to be bothered with any Kiagnose-specific resources.
+ * As a project admin,
    I want to be able to run a checkup in a given namespace,
    to confirm that I configured a namespaced operator (e.g. MariaDB) correctly
    in my namespace. I expect the checkup vendor to declare all the special
